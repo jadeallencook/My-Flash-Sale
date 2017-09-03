@@ -1,3 +1,26 @@
-<p>
-  dashboard works!
-</p>
+<app-navbar></app-navbar>
+
+<div id="dashboard-wrapper-image">
+  <div id="dashboard-wrapper-color">
+    <div class="container">
+
+      <!-- login -->
+      <div id="cred-panel" *ngIf="!FirebaseAuthService.activeUser">
+        <h1>My Account</h1>
+        <div *ngIf="FirebaseAuthService.errorMsg" class="alert alert-danger" role="alert">{{this.FirebaseAuthService.errorMsg}}</div>
+
+        <input type="text" class="form-control" [(ngModel)]="email" placeholder="Email" />
+        <input type="password" class="form-control" [(ngModel)]="password" placeholder="Password" />
+        <button (click)="this.FirebaseAuthService.login(email, password)" class="btn default-btn">Login</button>
+        <button (click)="this.FirebaseAuthService.createAccount(email, password)" class="btn default-btn">Sign Up</button>
+      </div>
+
+      <!-- dashboard -->
+      <div *ngIf="FirebaseAuthService.activeUser" id="dashboard-panel">
+        <h1 id="dash-header">Dashboard</h1>
+        <app-account-info></app-account-info>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseAuthService } from '../../services/firebase-auth.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.scss'],
+  providers: [FirebaseAuthService]
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private FirebaseAuthService: FirebaseAuthService) {}
 
   ngOnInit() {
   }

@@ -10,13 +10,14 @@
           <span class="icon-bar"></span>
         </button>
         <!-- main title -->
-        <a class="navbar-brand" href="#"><b>My Flash Sale</b></a>
+        <a class="navbar-brand" routerLink="/home"><b>My Flash Sale</b></a>
       </div>
 
       <!-- buttons -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Login</a></li>
+          <li *ngIf="!FirebaseAuthService.activeUser"><a routerLink="/dashboard">Login</a></li>
+          <li *ngIf="FirebaseAuthService.activeUser"><a (click)="FirebaseAuthService.logout()">Logout</a></li>
         </ul>
       </div>
 

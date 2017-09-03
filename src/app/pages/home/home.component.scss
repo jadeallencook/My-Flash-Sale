@@ -1,0 +1,41 @@
+div#splash-image {
+  height: 100%;
+  width: 100%;
+  background-image: url('../../../assets/tattooer.jpg');
+  background-size: cover;
+  background-position: center center;
+}
+
+div#splash-color {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+div#splash-msg {
+  display: inline-block;
+  width: 75%;
+  color: #fff;
+  position: relative;
+  top: 50%;
+  text-align: center;
+  transform: translateY(-50%);
+  p {
+    font-size: 3vh;
+  }
+  h1 {
+    font-size: 6vh;
+  }
+  .btn {
+    background-color: #fff;
+    border-radius: 0px;
+    color: #000;
+    width: 15%;
+    margin: 0px 5px;
+    min-width: 100px;
+  }
+  .btn:hover {
+    opacity: 0.5;
+  }
+}

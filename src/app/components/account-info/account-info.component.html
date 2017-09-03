@@ -1,0 +1,42 @@
+<a id="your-url">http://myflash.sale/artist/{{FirebaseAuthService.activeUser.uid}}</a>
+
+<h3>Information</h3>
+
+<p>Personal</p>
+
+<div class="input-group">
+  <input type="text" class="form-control" [(ngModel)]="fullName" placeholder="Full Name">
+  <input type="text" class="form-control" [(ngModel)]="websiteUrl" placeholder="Website">
+</div>
+
+<p>Shop</p>
+
+<div class="input-group">
+  <input type="text" class="form-control" [(ngModel)]="shopAddress" placeholder="Shop Address">
+  <input type="number" class="form-control" [(ngModel)]="shopZipcode" placeholder="Shop Zipcode">
+</div>
+
+<p>Prices</p>
+
+<div class="input-group sizes">
+  <span class="input-group-addon">$</span>
+  <input type="number" class="form-control" [(ngModel)]="smallPrice" placeholder="Small">
+  <span class="input-group-addon">.00</span>
+</div>
+<div class="input-group sizes">
+  <span class="input-group-addon">$</span>
+  <input type="number" class="form-control" [(ngModel)]="mediumPrice" placeholder="Medium">
+  <span class="input-group-addon">.00</span>
+</div>
+<div class="input-group sizes">
+  <span class="input-group-addon">$</span>
+  <input type="number" class="form-control" [(ngModel)]="largePrice" placeholder="Large">
+  <span class="input-group-addon">.00</span>
+</div>
+
+<div class="alert alert-success" *ngIf="successMsg" role="alert">{{successMsg}}</div>
+<button id="save-changes" (click)="saveData()" class="btn default-btn">Save Changes</button>
+
+<h3>Store</h3>
+
+<a *ngIf="storeItemsArray">Add Your First Item</a>

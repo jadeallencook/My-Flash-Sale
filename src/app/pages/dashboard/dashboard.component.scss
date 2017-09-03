@@ -1,0 +1,36 @@
+div#dashboard-wrapper-image {
+  background-image: url('../../../assets/tattooer.jpg');
+  background-size: cover;
+  background-position: center center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+div#dashboard-wrapper-color {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+div.container {
+  margin-top: 50px;
+  background-color: #fff;
+  padding: 25px 25px;
+}
+
+div#cred-panel {
+  input {
+    width: 300px;
+    margin: 15px 0px;
+  }
+  .alert {
+    margin-top: 15px;
+    width: 300px;
+  }
+}
+
+h1#dash-header {
+  margin-bottom: 15px;
+}
