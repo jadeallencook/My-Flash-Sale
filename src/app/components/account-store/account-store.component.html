@@ -1,0 +1,41 @@
+<h3>Store</h3>
+
+<div id="upload-form">
+  <div class="btn-group">
+    <button type="button" id="size-btn" class="btn btn-default" id="size-btn-title">{{size}}</button>
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="caret"></span>
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a (click)="size = 'small'">Small</a></li>
+      <li><a (click)="size = 'medium'">Medium</a></li>
+      <li><a (click)="size = 'large'">Large</a></li>
+    </ul>
+  </div>
+  <input id="flash-title" type="text" class="form-control" [(ngModel)]="title" placeholder="Title">
+  <div class="btn-group">
+    <label class="btn btn-default" id="upload-btn">
+        <span id="flash-image-tag">Choose Image</span> <input type="file" id="flash-image" [(ngModel)]="image" accept="image/*" name="file" hidden>
+    </label>
+    <button type="button" class="btn btn-primary" (click)="addToStore()">Add To Store</button>
+  </div>
+</div>
+
+<div *ngIf="DashboardStoreService.uploading">({{DashboardStoreService.uploadProgress}}% Complete) Uploading...</div>
+<div *ngIf="DashboardStoreService.success"><b>Upload Complete!</b></div>
+
+<p id="no-items-msg" *ngIf="storeItemsArray.length === 0">You have no items in your store!</p>
+
+<div class="row" *ngIf="storeItemsArray.length > 0" id="store-items">
+  <div class="col-sm-6 col-md-4" *ngFor="let item of storeItemsArray">
+    <div class="thumbnail">
+      <div class="flash-image" [style.background-image]="sanatizeBackground(item.image)"></div>
+      <div class="caption">
+        <a class="btn btn-danger" role="button" (click)="deleteItem(item.key)">Delete</a>
+        <h3>{{item.title}}</h3>
+        <p><i>{{item.size}}</i></p>
+      </div>
+    </div>
+  </div>
+</div>

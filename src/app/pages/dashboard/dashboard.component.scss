@@ -11,7 +11,8 @@ div#dashboard-wrapper-color {
   background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
   width: 100%;
-  position: absolute;
+  position: fixed;
+  overflow-y: scroll;
 }
 
 div.container {
@@ -33,4 +34,10 @@ div#cred-panel {
 
 h1#dash-header {
   margin-bottom: 15px;
+}
+
+div#dash-footer {
+  color: #fff;
+  margin: 15px auto;
+  text-align: center;
 }

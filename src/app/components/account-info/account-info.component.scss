@@ -9,6 +9,8 @@ h3 {
 a#your-url {
   display: block;
   margin-bottom: 15px;
+  max-width: 75%;
+  overflow: hidden;
 }
 
 div.input-group {

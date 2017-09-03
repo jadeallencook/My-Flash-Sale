@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { DashboardStoreService } from '../../services/dashboard-store.service'
-import { FirebaseAuthService } from '../../services/firebase-auth.service'
+import { FirebaseAuthService } from '../../services/firebase-auth.service';
 import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-account-info',
   templateUrl: './account-info.component.html',
   styleUrls: ['./account-info.component.scss'],
-  providers: [DashboardStoreService]
+  providers: []
 })
 export class AccountInfoComponent implements OnInit {
 
@@ -25,10 +24,9 @@ export class AccountInfoComponent implements OnInit {
   // build
   UID: string;
   accountInfo = {};
-  storeItemsArray = [];
   successMsg: string;
 
-  constructor(private DashboardStoreService: DashboardStoreService, private FirebaseAuthService: FirebaseAuthService) {
+  constructor(private FirebaseAuthService: FirebaseAuthService) {
     this.UID = FirebaseAuthService.activeUser.uid;
   }
 

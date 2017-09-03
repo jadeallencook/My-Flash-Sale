@@ -11,7 +11,7 @@ export const environment = {
     authDomain: "my-flash-sale.firebaseapp.com",
     databaseURL: "https://my-flash-sale.firebaseio.com",
     projectId: "my-flash-sale",
-    storageBucket: "",
+    storageBucket: "gs://my-flash-sale.appspot.com",
     messagingSenderId: "87298714533"
   }
 };

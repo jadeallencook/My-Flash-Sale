@@ -18,6 +18,7 @@ import { ArtistComponent } from './pages/artist/artist.component';
 import { BookComponent } from './pages/book/book.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AccountInfoComponent } from './components/account-info/account-info.component';
+import { AccountStoreComponent } from './components/account-store/account-store.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
     ArtistComponent,
     BookComponent,
     NavbarComponent,
-    AccountInfoComponent
+    AccountInfoComponent,
+    AccountStoreComponent
   ],
   imports: [
     BrowserModule,
