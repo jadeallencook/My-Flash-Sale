@@ -15,6 +15,7 @@ export class AccountInfoComponent implements OnInit {
   websiteUrl: string = '';
   shopAddress: string = '';
   shopZipcode: number = null;
+  paypalId:string = '';
 
   // prices
   smallPrice: number = null;
@@ -39,6 +40,7 @@ export class AccountInfoComponent implements OnInit {
       if (databaseValues.website) this.websiteUrl = databaseValues.website;
       if (databaseValues.address) this.shopAddress = databaseValues.address;
       if (databaseValues.zipcode) this.shopZipcode = databaseValues.zipcode;
+      if (databaseValues.paypal) this.paypalId = databaseValues.paypal;
       // apply pricing
       if (databaseValues.prices) {
         if (databaseValues.prices.small) this.smallPrice = databaseValues.prices.small;
@@ -51,24 +53,29 @@ export class AccountInfoComponent implements OnInit {
   saveData() {
     // save data to firebase
     let userDatabaseRef = firebase.database().ref('/artists/' + this.UID);
-    userDatabaseRef.set({
-      name: this.fullName,
-      website: this.websiteUrl,
-      address: this.shopAddress,
-      zipcode: this.shopZipcode,
-      prices: {
-        small: this.smallPrice,
-        medium: this.mediumPrice,
-        large: this.largePrice
-      }
-    }).then(() => {
-      this.successMsg = 'Your changes have been saved!';
-      let turnOffMsg = setInterval(() => {
-        this.successMsg = '';
-        clearInterval(turnOffMsg);
-      }, 2000);
-    }).catch((error) => {
-      console.log(error);
+    userDatabaseRef.on('value', (snapshot) => {
+      let storeItems = snapshot.val().store;
+      userDatabaseRef.set({
+        name: this.fullName,
+        website: this.websiteUrl,
+        address: this.shopAddress,
+        zipcode: this.shopZipcode,
+        paypal: this.paypalId,
+        prices: {
+          small: this.smallPrice,
+          medium: this.mediumPrice,
+          large: this.largePrice
+        },
+        store: storeItems
+      }).then(() => {
+        this.successMsg = 'Your changes have been saved!';
+        let turnOffMsg = setInterval(() => {
+          this.successMsg = '';
+          clearInterval(turnOffMsg);
+        }, 2000);
+      }).catch((error) => {
+        console.log(error);
+      });
     });
   }
 
